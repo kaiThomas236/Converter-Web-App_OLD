@@ -1,0 +1,247 @@
+<html>
+
+<style>
+  html, body { height:0%; margin:0; padding:0 }
+  h5 { font-family:"verdana"; color:#CCC;}
+  h4 { font-family:"verdana"}
+  h2 { font-family:"verdana"}
+  h1 { font-family:"verdana"}
+  a { text-decoration: none;}
+
+  body { background-image: url("../images/stars1.jpg"); opacity: 0.85}
+
+  #nav0 { position:fixed; height:7%; width:80; top:0%; left: 0%; background: #333; width:100% }
+  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:60}
+  #nav2 { position:fixed; height:7%; width:120; top:0%; left: 60; }
+  #nav3 { position:fixed; height:7%; width:80; top:0%; left: 190; }
+  #nav4 { position:fixed; height:7%; width:80; top:0%; left: 295; }
+  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 370; }
+  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 445; }
+
+  #box1{ position:fixed; left:5%; height:30%; top:4%; width:80%}
+  #box2{ position:fixed; left:9%; height:30%; top:10%; width:80%}
+  #planetsbox{ position:fixed; left:9%; height:30%; top:44%; width:80%}
+  #planetsbox1{ position:fixed; left: 9%; height:2%; top:68%; width:55%}
+  #planetsbox2{ position:fixed; left:52%; height:2%; top:68%; width:55%}
+</style>
+
+<body>
+<div id="nav0">
+</div>
+
+<a href="..\home.html">
+  <div id="nav1">
+    <h5><center>Home</center></h5>
+  </div>
+</a>
+
+<a href="numbers.html">
+  <div id= "nav2">
+    <h5><center>Number Bases</center></h5>
+  </div>
+</a>
+
+<a href="temp.html">
+  <div id="nav3">
+    <h5><center>Temperatures</center></h5>
+  </div>
+</a>
+
+<a href="massweight.html">
+  <div id= "nav4">
+    <h5><center>Masses</center></h5>
+  </div>
+</a>
+
+<a href="currency.html">
+  <div id= "nav5">
+    <h5><center>Currency</center></h5>
+  </div>
+</a>
+
+<a href="distances.html">
+  <div id= "nav6">
+    <h5><center>Lengths</center></h5>
+  </div>
+</a>
+
+
+<div id = "box1">
+  <h1>Mass Conversion</h1>
+  <div id = "box2">
+    <form id="frm1">
+    <h4>Ounces: <input     id="oz"  placeholder=""></input></h4>
+    <h4>Pounds: <input     id="lbs" placeholder=""></input></h4>
+    <h4>Kilograms: <input  id="kg"  placeholder=""></input></h4>
+    <h4>Grams: <input      id="g"   placeholder=""></input></h4>
+    <h4><input type="button" onclick="myFunction()" value="Submit"></h4>
+    </form>
+  </div>
+</div>
+
+<div id = "planetsbox">
+  <form id="frm2">
+    <h2>What would you weigh on another planet?</h2>
+    <h4>Enter your weight: <input id="weight" placeholder=""></h4>
+    <h4><input type = "button" onclick="planets()" value="Submit"></h4>
+  </form>
+</div>
+<div id="planetsbox1">
+
+  <img src="../images/Mercury-june.gif" alt="Mercury" width="35" height="35" align="left"><h4 id="mer">Your weight on Mercury:</h4>
+  <img src="../images/venus-planet-animation-6.gif" alt="Venus" width="35" height="35" align="left"><h4 id="ven">Your weight on Venus:</h4>
+  <img src="../images/earth-spinning-rotating-animation-24.gif" alt="Mars" width="34" height="35" align="left"><h4 id="ear" height="42">Your weight on Earth:</h4>
+  <img src="../images/mars-planet-animation-7.gif" alt="Earth" width="35" height="35" align="left"><h4 id="mar">Your weight on Mars:</h4>
+
+</div>
+<div id="planetsbox2">
+
+  <img src="../images/jupiter-planet-animation-4.gif" alt="Jupiter" width="35" height="35" align="left"><h4 id="jup" height:"42">Your weight on Jupiter:</h4>
+  <img src="../images/Saturn-june.gif" alt="Saturn" width="70" height="35" align="left"><h4 id="sat">Your weight on Saturn:</h4>
+  <img src="../images/uranus-planet-animation-4.gif" alt="Uranus" width="35" height="35" align="left"><h4 id="ura" height = "42">Your weight on Uranus:</h4>
+  <img src="../images/Neptune-june.gif" alt="Neptune" width="35" height="35" align="left"><h4 id="nep">Your weight on Neptune:</h4>
+
+</div>
+
+
+</body>
+
+<script>
+
+  function planets(){
+    var y = document.getElementById("frm2");
+
+    var weight = y.elements[0].value;
+    document.getElementById("ear").innerHTML = "Your weight on Earth: "+weight;
+    weight = weight/9.8;
+
+    document.getElementById("mer").innerHTML = "Your weight on Mercury: "+( (weight*3.7).toFixed(2) );
+    document.getElementById("ven").innerHTML = "Your weight on Venus: "+( (weight*8.87).toFixed(2) );
+
+    document.getElementById("mar").innerHTML = "Your weight on Mars: "+( (weight*3.711).toFixed(2) );
+    document.getElementById("jup").innerHTML = "Your weight on Jupiter: "+( (weight*24.79).toFixed(2) );
+    document.getElementById("sat").innerHTML = "Your weight on Saturn: "+( (weight*10.44).toFixed(2) );
+    document.getElementById("ura").innerHTML = "Your weight on Uranus: "+( (weight*8.69).toFixed(2) );
+    document.getElementById("nep").innerHTML = "Your weight on Neptune: "+( (weight*11.15).toFixed(2) );
+    //{3.7, 8.87, 9.8, 3.711,  24.79, 10.44, 8.69, 11.15};
+
+
+  }
+
+  // Kai's functions here
+    function ouncesToPounds(ounces) {
+        var pounds = ounces / 16;
+        document.getElementById("lbs").placeholder = pounds.toFixed(2);
+    }
+    function ouncesToKilograms(ounces)
+    {
+        var kilograms = ounces / 35.274;
+        document.getElementById("kg").placeholder = kilograms.toFixed(2);
+    }
+    function ouncesToGrams(ounces)
+    {
+        var grams = ounces * 28.3495;
+        document.getElementById("g").placeholder = grams.toFixed(2);
+    }
+    function poundsToOunces(pounds)
+    {
+        var ounces = pounds * 16;
+        document.getElementById("oz").placeholder = ounces.toFixed(2);
+    }
+    function poundsToKilograms(pounds)
+    {
+        var kilograms = pounds / 2.205;
+        document.getElementById("kg").placeholder = kilograms.toFixed(2);
+    }
+    function poundsToGrams(pounds)
+    {
+        var grams = pounds * 453.592;
+        document.getElementById("g").placeholder = grams.toFixed(2);
+    }
+    function kilogramsToGrams(kilograms)
+    {
+        var grams = kilograms * 1000;
+        document.getElementById("g").placeholder = grams.toFixed(2);
+    }
+    function kilogramsToOunces(kilograms)
+    {
+        var ounces = kilograms * 35.274;
+        document.getElementById("oz").placeholder = ounces.toFixed(2);
+    }
+    function kilogramsToPounds(kilograms)
+    {
+        var pounds = kilograms * 2.205;
+        document.getElementById("lbs").placeholder = pounds.toFixed(2);
+    }
+    function gramsToKilograms(grams)
+    {
+        var kilograms = grams / 1000;
+        document.getElementById("kg").placeholder = kilograms.toFixed(2);
+    }
+    function gramsToOunces(grams)
+    {
+        var ounces = grams / 28.3495;
+        document.getElementById("oz").placeholder = ounces.toFixed(2);
+    }
+    function gramsToPounds(grams)
+    {
+        var pounds = grams / 453.592;
+        document.getElementById("lbs").placeholder = pounds.toFixed(2);
+    }
+
+
+
+
+  //example:
+  //function ozToPounds(oz){
+  // pounds = ounces * 12 or something;
+  // document.getElementById("lbs").placeholder = pounds;
+  //}
+
+
+  function myFunction() {
+    console.log("test");
+    var x = document.getElementById("frm1");
+
+    var ounces = x.elements[0].value;
+    var pounds = x.elements[1].value;
+    var kilograms = x.elements[2].value;
+    var grams = x.elements[3].value;
+
+    if (ounces != ""){ //done
+      ouncesToPounds(ounces);
+      ouncesToKilograms(ounces);
+      ouncesToGrams(ounces);
+      document.getElementById("oz").placeholder = ounces;
+      document.getElementById("oz").value = "";
+    }
+
+      if (pounds != "") { //done
+      poundsToOunces(pounds);
+      poundsToGrams(pounds);
+      poundsToKilograms(pounds);
+      document.getElementById("lbs").placeholder = pounds;
+      document.getElementById("lbs").value = "";
+    }
+
+      if (kilograms != "") { //done
+      kilogramsToPounds(kilograms);
+      kilogramsToOunces(kilograms);
+      kilogramsToGrams(kilograms);
+      document.getElementById("kg").placeholder = kilograms;
+      document.getElementById("kg").value = "";
+    }
+
+    if (grams != ""){ //done
+      gramsToOunces(grams);
+      gramsToPounds(grams);
+      gramsToKilograms(grams);
+      document.getElementById("g").placeholder = grams;
+      document.getElementById("g").value = "";
+    }
+  }
+
+
+</script>
+
+</html>
